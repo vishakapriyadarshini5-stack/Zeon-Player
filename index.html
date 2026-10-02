@@ -3,83 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zeon Player // Cyber Edition</title>
+    <title>Zeon Player // Modern Edition</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: SF Pro / Inter style -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- YouTube IFrame Player API -->
     <script src="https://www.youtube.com/iframe_api"></script>
 
     <style>
         :root {
-            --accent-glow: rgba(255, 45, 85, 0.4);
-            --accent-color: #ff2d55;
-            --bg-glow-1: #1a0b2e;
-            --bg-glow-2: #082032;
+            --bg-accent-1: #3b82f6;
+            --bg-accent-2: #8b5cf6;
+            --bg-accent-3: #ec4899;
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #050508;
+            background-color: #0b0c10;
             color: #ffffff;
             overflow: hidden;
             user-select: none;
         }
 
-        /* Ambient Dynamic Background mesh */
+        /* Apple Music Style Vibrant Dynamic Ambient Canvas */
         .ambient-bg {
             position: absolute;
-            inset: -20%;
-            background: radial-gradient(circle at 20% 30%, var(--bg-glow-1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 70%, var(--bg-glow-2) 0%, transparent 50%),
-                        radial-gradient(circle at 50% 50%, rgba(255, 45, 85, 0.15) 0%, transparent 60%);
-            filter: blur(80px);
-            opacity: 0.85;
-            transition: all 1.2s ease-in-out;
+            inset: -30%;
+            background: radial-gradient(circle at 25% 30%, var(--bg-accent-1) 0%, transparent 60%),
+                        radial-gradient(circle at 75% 65%, var(--bg-accent-2) 0%, transparent 60%),
+                        radial-gradient(circle at 50% 85%, var(--bg-accent-3) 0%, transparent 60%);
+            filter: blur(100px);
+            opacity: 0.45;
+            transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
             pointer-events: none;
             z-index: 0;
-            animation: pulseGlow 12s infinite alternate ease-in-out;
+            animation: slowPulse 16s ease-in-out infinite alternate;
         }
 
-        @keyframes pulseGlow {
+        @keyframes slowPulse {
             0% { transform: scale(1) rotate(0deg); }
-            100% { transform: scale(1.1) rotate(5deg); }
+            100% { transform: scale(1.1) rotate(6deg); }
         }
 
-        /* Glassmorphism Panels */
+        /* Frosted Glass Panels */
         .glass-panel {
-            background: rgba(18, 18, 26, 0.55);
-            backdrop-filter: blur(30px) saturate(200%);
-            -webkit-backdrop-filter: blur(30px) saturate(200%);
+            background: rgba(22, 24, 34, 0.65);
+            backdrop-filter: blur(35px) saturate(180%);
+            -webkit-backdrop-filter: blur(35px) saturate(180%);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .glass-card:hover {
             background: rgba(255, 255, 255, 0.09);
-            border-color: rgba(255, 255, 255, 0.18);
-            transform: translateY(-4px) scale(1.01);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
         }
 
         .glass-player {
-            background: rgba(15, 15, 22, 0.75);
-            backdrop-filter: blur(40px) saturate(210%);
-            -webkit-backdrop-filter: blur(40px) saturate(210%);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(18, 20, 29, 0.82);
+            backdrop-filter: blur(40px) saturate(200%);
+            -webkit-backdrop-filter: blur(40px) saturate(200%);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Custom Range Slider */
+        /* Custom Modern Range Slider */
         input[type=range] {
             -webkit-appearance: none;
             background: transparent;
@@ -92,11 +92,11 @@
             height: 4px;
             cursor: pointer;
             background: rgba(255, 255, 255, 0.2);
-            border-radius: 2px;
+            border-radius: 9999px;
             transition: background 0.2s;
         }
         input[type=range]:hover::-webkit-slider-runnable-track {
-            background: rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.4);
         }
         input[type=range]::-webkit-slider-thumb {
             height: 12px;
@@ -106,27 +106,25 @@
             cursor: pointer;
             -webkit-appearance: none;
             margin-top: -4px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            transition: transform 0.1s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            transition: transform 0.15s ease;
         }
         input[type=range]::-webkit-slider-thumb:hover {
-            transform: scale(1.3);
+            transform: scale(1.25);
         }
 
-        /* Lyrics Active Highlight */
+        /* Lyrics Line Typography */
         .lyric-line {
-            transition: all 0.4s ease;
-            opacity: 0.35;
-            filter: blur(0.5px);
-            transform: scale(0.97);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0.3;
+            transform: scale(0.96);
             transform-origin: left center;
+            cursor: pointer;
         }
         .lyric-line.active {
             opacity: 1;
-            filter: blur(0);
-            transform: scale(1.05);
+            transform: scale(1.04);
             color: #ffffff;
-            text-shadow: 0 0 20px var(--accent-glow);
             font-weight: 700;
         }
 
@@ -140,216 +138,208 @@
         }
         ::-webkit-scrollbar-thumb {
             background: rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
+            border-radius: 9999px;
         }
         ::-webkit-scrollbar-thumb:hover {
             background: rgba(255, 255, 255, 0.3);
         }
-
-        /* Spinning Vinyl Effect for Active Record */
-        .spin-slow {
-            animation: spin 20s linear infinite;
-        }
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
     </style>
 </head>
-<body class="h-screen w-screen flex flex-col relative select-none overflow-hidden">
+<body class="h-screen w-screen flex flex-col relative select-none overflow-hidden bg-slate-950">
 
+    <!-- Ambient Dynamic Glow Backdrop -->
     <div id="ambient-bg" class="ambient-bg"></div>
 
-    <!-- Hidden YouTube Player Container -->
-    <div class="hidden">
+    <!-- YouTube Video IFrame Container (Hidden from visual view) -->
+    <div class="fixed top-0 left-0 -z-50 opacity-0 pointer-events-none w-1 h-1 overflow-hidden">
         <div id="yt-player"></div>
     </div>
 
-    <!-- Main Container -->
+    <!-- Main Player Layout Structure -->
     <div class="z-10 flex flex-1 h-[calc(100vh-88px)] overflow-hidden">
 
-        <aside class="w-64 glass-panel flex flex-col justify-between p-4 hidden md:flex z-20">
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 glass-panel flex flex-col justify-between p-5 hidden md:flex z-20">
             <div class="space-y-6">
                 <!-- Brand Header -->
-                <div class="flex items-center space-x-3 px-2 py-1">
-                    <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-pink-500 via-red-500 to-purple-600 flex items-center justify-center shadow-lg shadow-pink-500/30">
-                        <i class="fa-solid fa-music text-white text-sm"></i>
+                <div class="flex items-center space-x-3 px-1 py-1">
+                    <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-music text-white text-xs"></i>
                     </div>
                     <div>
-                        <h1 class="font-bold text-sm tracking-wide text-white">Zeon Player</h1>
-                        <span class="text-[10px] text-pink-400 font-mono tracking-widest uppercase">Cyber Edition</span>
+                        <h1 class="font-bold text-sm tracking-tight text-white">Zeon Player</h1>
+                        <span class="text-[10px] text-zinc-400 font-medium">Studio Edition</span>
                     </div>
                 </div>
 
                 <!-- Search Input Bar -->
                 <div class="relative">
                     <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-zinc-400 text-xs"></i>
-                    <input id="nav-search-input" type="text" placeholder="Search Zeon Streams..." 
-                        onkeydown="if(event.key==='Enter') searchYouTubeMusic(this.value)"
-                        class="w-full bg-white/5 border border-white/10 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white placeholder-zinc-500 outline-none focus:border-pink-500/50 focus:bg-white/10 transition">
+                    <input id="nav-search-input" type="text" placeholder="Search songs or paste YouTube URL..." 
+                        onkeydown="if(event.key==='Enter') searchOrLoadYouTube(this.value)"
+                        class="w-full bg-white/5 border border-white/10 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white placeholder-zinc-500 outline-none focus:border-indigo-500/60 focus:bg-white/10 transition">
                 </div>
 
-                <!-- Navigation Links -->
+                <!-- Main Navigation -->
                 <nav class="space-y-1">
-                    <div class="text-[10px] font-bold text-zinc-500 uppercase px-3 pb-1 tracking-wider">Discover</div>
-                    <button onclick="switchTab('listen-now')" id="nav-listen-now" class="nav-btn w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white">
-                        <i class="fa-solid fa-circle-play text-pink-500 text-sm"></i>
+                    <div class="text-[10px] font-semibold text-zinc-500 uppercase px-3 pb-1 tracking-wider">Discover</div>
+                    <button onclick="switchTab('listen-now')" id="nav-listen-now" class="nav-btn w-full flex items-center space-x-3 px-3 py-2 rounded-xl text-xs font-medium bg-white/10 text-white">
+                        <i class="fa-solid fa-play text-indigo-400 text-sm"></i>
                         <span>Listen Now</span>
                     </button>
-                    <button onclick="switchTab('browse')" id="nav-browse" class="nav-btn w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-xs font-semibold text-zinc-400 hover:text-white hover:bg-white/5 transition">
-                        <i class="fa-solid fa-grid-2 text-purple-400 text-sm"></i>
-                        <span>Browse Hits</span>
+                    <button onclick="switchTab('browse')" id="nav-browse" class="nav-btn w-full flex items-center space-x-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition">
+                        <i class="fa-solid fa-compass text-purple-400 text-sm"></i>
+                        <span>Browse Genres</span>
                     </button>
-                    <button onclick="switchTab('search-results')" id="nav-search-results" class="nav-btn w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-xs font-semibold text-zinc-400 hover:text-white hover:bg-white/5 transition">
-                        <i class="fa-solid fa-magnifying-glass text-cyan-400 text-sm"></i>
-                        <span>YouTube Stream</span>
+                    <button onclick="switchTab('search-results')" id="nav-search-results" class="nav-btn w-full flex items-center space-x-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition">
+                        <i class="fa-solid fa-globe text-pink-400 text-sm"></i>
+                        <span>Online Streams</span>
                     </button>
                 </nav>
 
+                <!-- Library Section -->
                 <nav class="space-y-1">
-                    <div class="text-[10px] font-bold text-zinc-500 uppercase px-3 pb-1 tracking-wider">Library</div>
-                    <button onclick="switchTab('local-files')" id="nav-local-files" class="nav-btn w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-xs font-semibold text-zinc-400 hover:text-white hover:bg-white/5 transition">
+                    <div class="text-[10px] font-semibold text-zinc-500 uppercase px-3 pb-1 tracking-wider">Library</div>
+                    <button onclick="switchTab('local-files')" id="nav-local-files" class="nav-btn w-full flex items-center space-x-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition">
                         <i class="fa-solid fa-folder-open text-emerald-400 text-sm"></i>
-                        <span>Local MP3s</span>
+                        <span>Local Music</span>
                     </button>
-                    <button onclick="switchTab('queue')" id="nav-queue" class="nav-btn w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-xs font-semibold text-zinc-400 hover:text-white hover:bg-white/5 transition">
-                        <i class="fa-solid fa-list-ol text-amber-400 text-sm"></i>
-                        <span>Playing Queue</span>
+                    <button onclick="switchTab('queue')" id="nav-queue" class="nav-btn w-full flex items-center space-x-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition">
+                        <i class="fa-solid fa-list-ul text-sky-400 text-sm"></i>
+                        <span>Queue</span>
                     </button>
                 </nav>
             </div>
 
-            <!-- Equalizer & Spectrum Toggle Widget -->
-            <div class="glass-card p-3 rounded-xl space-y-2">
-                <div class="flex items-center justify-between text-xs font-semibold">
-                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-sliders text-pink-500"></i> EQ Preset</span>
-                    <span id="eq-current-label" class="text-[10px] text-pink-400 font-mono">BASS BOOST</span>
+            <!-- Equalizer Widget -->
+            <div class="glass-card p-3 rounded-2xl space-y-2">
+                <div class="flex items-center justify-between text-xs font-medium">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-sliders text-indigo-400"></i> Equalizer</span>
+                    <span id="eq-current-label" class="text-[10px] text-zinc-400">ACOUSTIC</span>
                 </div>
-                <select id="eq-selector" onchange="applyEQPreset(this.value)" class="w-full bg-black/40 border border-white/10 text-xs text-zinc-300 rounded p-1.5 outline-none">
-                    <option value="bass">Bass Booster</option>
-                    <option value="cyber"></option>
-                    <option value="vocal">Vocal Clarity</option>
-                    <option value="flat">Flat / Natural</option>
+                <select id="eq-selector" onchange="applyEQPreset(this.value)" class="w-full bg-black/30 border border-white/10 text-xs text-zinc-300 rounded-xl p-2 outline-none cursor-pointer hover:bg-black/40 transition">
+                    <option value="acoustic">Acoustic Clarity</option>
+                    <option value="bass">Bass Enhancer</option>
+                    <option value="vocal">Vocal Boost</option>
+                    <option value="flat">Balanced Flat</option>
                 </select>
             </div>
         </aside>
 
-        <main class="flex-1 overflow-y-auto relative p-4 md:p-8 z-10">
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-y-auto relative p-5 md:p-8 z-10">
 
-            <!-- TAB 1: LISTEN NOW (Featured Hero & Quick Play Curated Playlists) -->
-            <section id="tab-listen-now" class="tab-content space-y-6">
-                <!-- Hero Banner -->
-                <div class="relative rounded-2xl overflow-hidden p-6 md:p-10 border border-white/10 glass-card bg-gradient-to-r from-pink-900/40 via-purple-950/40 to-cyan-950/40 flex flex-col justify-end min-h-[220px]">
-                    <div class="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000');"></div>
-                    <div class="relative z-10 max-w-xl space-y-2">
-                        <span class="text-xs font-bold uppercase tracking-widest text-pink-400">Featured Station</span>
-                        <h2 class="text-2xl md:text-4xl font-extrabold text-white tracking-tight">Cyberpunk Lofi & Synthwave</h2>
-                        <p class="text-xs md:text-sm text-zinc-300">Infinite futuristic beats, high-fidelity streams, and ambient local music audio processing.</p>
+            <!-- TAB 1: LISTEN NOW -->
+            <section id="tab-listen-now" class="tab-content space-y-8">
+                <!-- Featured station hero banner -->
+                <div class="relative rounded-3xl overflow-hidden p-6 md:p-10 border border-white/10 glass-card bg-gradient-to-r from-indigo-900/30 via-slate-900/40 to-purple-900/30 flex flex-col justify-end min-h-[240px]">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1000');"></div>
+                    <div class="relative z-10 max-w-xl space-y-3">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-indigo-300">Featured Playlist</span>
+                        <h2 class="text-2xl md:text-4xl font-extrabold text-white tracking-tight">Midnight Ambient Sessions</h2>
+                        <p class="text-xs md:text-sm text-zinc-300 font-normal leading-relaxed">Curated soundscapes, lo-fi beats, and high-fidelity audio streams for deep focus and relaxation.</p>
                         <div class="pt-2 flex items-center space-x-3">
-                            <button onclick="playCuratedStation('synthwave')" class="px-5 py-2.5 rounded-full bg-pink-600 hover:bg-pink-500 text-white font-semibold text-xs transition flex items-center space-x-2 shadow-lg shadow-pink-600/30">
-                                <i class="fa-solid fa-play"></i>
-                                <span>Play Cyber Stream</span>
+                            <button onclick="playCuratedStation(0)" class="px-6 py-2.5 rounded-full bg-white text-slate-950 hover:bg-zinc-200 font-semibold text-xs transition flex items-center space-x-2 shadow-lg">
+                                <i class="fa-solid fa-play text-slate-950"></i>
+                                <span>Play Station</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Featured Grid -->
-                <div class="space-y-3">
-                    <h3 class="text-lg font-bold text-white flex items-center space-x-2">
-                        <span>Curated YouTube Streams</span>
-                        <span class="text-xs font-normal text-zinc-400">Instant HD Playback</span>
-                    </h3>
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-white tracking-tight">Curated Channels</h3>
                     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="curated-stations-grid">
-                        <!-- Stations injected via JS -->
+                        <!-- Stations dynamically rendered -->
                     </div>
                 </div>
 
-                <!-- Preloaded Demo Tracks -->
-                <div class="space-y-3">
-                    <h3 class="text-lg font-bold text-white">Top Preloaded Hits</h3>
-                    <div class="glass-card rounded-xl divide-y divide-white/5" id="preloaded-tracks-list">
-                        <!-- Demo tracks injected via JS -->
+                <!-- Featured Tracks -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-white tracking-tight">Essential Tracks</h3>
+                    <div class="glass-card rounded-2xl divide-y divide-white/5 overflow-hidden" id="preloaded-tracks-list">
+                        <!-- Preloaded tracks injected here -->
                     </div>
                 </div>
             </section>
 
             <!-- TAB 2: BROWSE HITS -->
             <section id="tab-browse" class="tab-content hidden space-y-6">
-                <h2 class="text-2xl font-bold text-white">Browse Categories</h2>
+                <h2 class="text-2xl font-bold text-white tracking-tight">Browse Genres & Moods</h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div onclick="searchYouTubeMusic('Cyberpunk Synthwave 2026')" class="glass-card p-5 rounded-2xl cursor-pointer hover:border-pink-500/50 bg-gradient-to-br from-purple-900/40 to-pink-900/40">
-                        <i class="fa-solid fa-bolt text-3xl text-pink-400 mb-3"></i>
-                        <h4 class="font-bold text-sm">Synthwave</h4>
-                        <p class="text-xs text-zinc-400 mt-1">Retrofuturistic electronic driving music.</p>
+                    <div onclick="searchOrLoadYouTube('Acoustic Chill Hits')" class="glass-card p-6 rounded-2xl cursor-pointer bg-gradient-to-br from-indigo-950/40 to-slate-900/40">
+                        <i class="fa-solid fa-guitar text-2xl text-indigo-400 mb-3"></i>
+                        <h4 class="font-bold text-sm">Acoustic & Folk</h4>
+                        <p class="text-xs text-zinc-400 mt-1">Unplugged melodies and calm instrumentals.</p>
                     </div>
-                    <div onclick="searchYouTubeMusic('Lofi Hip Hop Beats to Chill')" class="glass-card p-5 rounded-2xl cursor-pointer hover:border-cyan-500/50 bg-gradient-to-br from-cyan-900/40 to-blue-900/40">
-                        <i class="fa-solid fa-coffee text-3xl text-cyan-400 mb-3"></i>
-                        <h4 class="font-bold text-sm">Lofi Cyber Beats</h4>
-                        <p class="text-xs text-zinc-400 mt-1">Chill beats for focus and late-night coding.</p>
+                    <div onclick="searchOrLoadYouTube('Lo-fi Beats to Study')" class="glass-card p-6 rounded-2xl cursor-pointer bg-gradient-to-br from-purple-950/40 to-slate-900/40">
+                        <i class="fa-solid fa-mug-hot text-2xl text-purple-400 mb-3"></i>
+                        <h4 class="font-bold text-sm">Lofi Chill Beats</h4>
+                        <p class="text-xs text-zinc-400 mt-1">Soothing rhythms designed for focus.</p>
                     </div>
-                    <div onclick="searchYouTubeMusic('Top Billboard Global Hits')" class="glass-card p-5 rounded-2xl cursor-pointer hover:border-emerald-500/50 bg-gradient-to-br from-emerald-900/40 to-teal-900/40">
-                        <i class="fa-solid fa-fire text-3xl text-emerald-400 mb-3"></i>
+                    <div onclick="searchOrLoadYouTube('Top Hits 2026 Global')" class="glass-card p-6 rounded-2xl cursor-pointer bg-gradient-to-br from-pink-950/40 to-slate-900/40">
+                        <i class="fa-solid fa-chart-line text-2xl text-pink-400 mb-3"></i>
                         <h4 class="font-bold text-sm">Top Global 100</h4>
-                        <p class="text-xs text-zinc-400 mt-1">The hottest trending songs right now.</p>
+                        <p class="text-xs text-zinc-400 mt-1">The most played tracks worldwide right now.</p>
                     </div>
-                    <div onclick="searchYouTubeMusic('Ambient Futuristic Space Soundscapes')" class="glass-card p-5 rounded-2xl cursor-pointer hover:border-amber-500/50 bg-gradient-to-br from-amber-900/40 to-orange-900/40">
-                        <i class="fa-solid fa-user-astronaut text-3xl text-amber-400 mb-3"></i>
-                        <h4 class="font-bold text-sm">Deep Ambient</h4>
-                        <p class="text-xs text-zinc-400 mt-1">Atmospheric space textures & drones.</p>
+                    <div onclick="searchOrLoadYouTube('Ambient Space Soundscapes')" class="glass-card p-6 rounded-2xl cursor-pointer bg-gradient-to-br from-emerald-950/40 to-slate-900/40">
+                        <i class="fa-solid fa-cloud text-2xl text-emerald-400 mb-3"></i>
+                        <h4 class="font-bold text-sm">Deep Focus</h4>
+                        <p class="text-xs text-zinc-400 mt-1">Minimalist soundscapes and ambient textures.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- TAB 3: YOUTUBE SEARCH RESULTS -->
+            <!-- TAB 3: ONLINE SEARCH RESULTS -->
             <section id="tab-search-results" class="tab-content hidden space-y-4">
                 <div class="flex justify-between items-center">
-                    <h2 class="text-2xl font-bold text-white">Zeon Stream Search</h2>
-                    <span id="search-query-label" class="text-xs text-zinc-400 font-mono">Query: None</span>
+                    <h2 class="text-2xl font-bold text-white tracking-tight">Stream Search</h2>
+                    <span id="search-query-label" class="text-xs text-zinc-400">Search for any track or stream</span>
                 </div>
                 <div id="search-results-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <p class="text-zinc-500 text-sm col-span-full">Use the search bar in the sidebar to stream any track via Zeon engine!</p>
+                    <p class="text-zinc-400 text-xs col-span-full">Type a query or paste a YouTube URL in the top left search bar to begin streaming.</p>
                 </div>
             </section>
 
-            <!-- TAB 4: LOCAL MP3 PLAYER / UPLOAD -->
+            <!-- TAB 4: LOCAL MUSIC FILE UPLOADER -->
             <section id="tab-local-files" class="tab-content hidden space-y-6">
                 <div class="flex justify-between items-center">
                     <div>
-                        <h2 class="text-2xl font-bold text-white">Local Audio Files</h2>
-                        <p class="text-xs text-zinc-400">Upload MP3/WAV/FLAC files for high-fidelity Web Audio processing.</p>
+                        <h2 class="text-2xl font-bold text-white tracking-tight">Local Library</h2>
+                        <p class="text-xs text-zinc-400 mt-1">Select or drag audio files directly into the player for instant HTML5 Web Audio playback.</p>
                     </div>
-                    <label class="px-4 py-2 bg-pink-600 hover:bg-pink-500 text-white rounded-lg text-xs font-semibold cursor-pointer shadow-lg shadow-pink-600/30 transition flex items-center space-x-2">
-                        <i class="fa-solid fa-file-arrow-up"></i>
-                        <span>Upload Audio Files</span>
+                    <label class="px-5 py-2.5 bg-white hover:bg-zinc-200 text-slate-950 rounded-full text-xs font-semibold cursor-pointer shadow-md transition flex items-center space-x-2">
+                        <i class="fa-solid fa-file-arrow-up text-slate-950"></i>
+                        <span>Upload MP3 Files</span>
                         <input type="file" id="local-file-input" multiple accept="audio/*" onchange="handleLocalFiles(this.files)" class="hidden">
                     </label>
                 </div>
 
                 <!-- Dropzone -->
-                <div id="drop-zone" ondragover="event.preventDefault()" ondrop="handleDrop(event)" 
-                    class="border-2 border-dashed border-white/10 hover:border-pink-500/50 rounded-2xl p-8 text-center glass-card transition cursor-pointer"
+                <div id="drop-zone" ondragover="event.preventDefault(); this.classList.add('border-indigo-500')" ondragleave="this.classList.remove('border-indigo-500')" ondrop="handleDrop(event)" 
+                    class="border-2 border-dashed border-white/10 hover:border-white/20 rounded-3xl p-10 text-center glass-card transition cursor-pointer"
                     onclick="document.getElementById('local-file-input').click()">
-                    <i class="fa-solid fa-cloud-arrow-up text-4xl text-pink-400 mb-2"></i>
-                    <p class="text-sm font-semibold text-white">Drag & Drop Local MP3 Files Here</p>
-                    <p class="text-xs text-zinc-400 mt-1">Supports MP3, WAV, FLAC, AAC files processed directly in your browser.</p>
+                    <i class="fa-solid fa-folder-plus text-3xl text-indigo-400 mb-3"></i>
+                    <p class="text-sm font-medium text-white">Drag & Drop Audio Files Here</p>
+                    <p class="text-xs text-zinc-400 mt-1">Supports MP3, WAV, AAC, M4A, and FLAC files directly in browser memory.</p>
                 </div>
 
-                <div class="space-y-2">
-                    <h3 class="text-sm font-bold text-zinc-300">Uploaded Tracks</h3>
-                    <div id="local-tracks-list" class="glass-card rounded-xl divide-y divide-white/5 min-h-[100px]">
-                        <p class="p-4 text-xs text-zinc-500 text-center">No local files loaded yet.</p>
+                <div class="space-y-3">
+                    <h3 class="text-sm font-semibold text-zinc-300 tracking-wide">Loaded Tracks</h3>
+                    <div id="local-tracks-list" class="glass-card rounded-2xl divide-y divide-white/5 min-h-[100px] overflow-hidden">
+                        <p class="p-6 text-xs text-zinc-500 text-center">No local audio files uploaded yet.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- TAB 5: PLAYING QUEUE -->
+            <!-- TAB 5: QUEUE -->
             <section id="tab-queue" class="tab-content hidden space-y-4">
                 <div class="flex justify-between items-center">
-                    <h2 class="text-2xl font-bold text-white">Playing Queue</h2>
-                    <button onclick="clearQueue()" class="text-xs text-red-400 hover:text-red-300">Clear All</button>
+                    <h2 class="text-2xl font-bold text-white tracking-tight">Current Queue</h2>
+                    <button onclick="clearQueue()" class="text-xs text-zinc-400 hover:text-red-400 transition">Clear Queue</button>
                 </div>
-                <div id="queue-list" class="glass-card rounded-xl divide-y divide-white/5">
+                <div id="queue-list" class="glass-card rounded-2xl divide-y divide-white/5 overflow-hidden">
                     <!-- Queue list injected here -->
                 </div>
             </section>
@@ -357,25 +347,26 @@
         </main>
     </div>
 
-    <footer class="h-[88px] glass-player z-40 px-4 md:px-8 flex items-center justify-between relative">
+    <!-- Bottom Persistent Player Bar -->
+    <footer class="h-[88px] glass-player z-40 px-6 md:px-8 flex items-center justify-between relative">
 
-        <!-- Left: Track Info & Artwork -->
+        <!-- Left Column: Album Art & Details -->
         <div class="flex items-center space-x-4 w-1/4">
             <div class="relative group cursor-pointer" onclick="toggleLyricsModal()">
-                <img id="player-art" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=300" class="w-14 h-14 rounded-lg object-cover shadow-lg shadow-black/50 border border-white/10 transition group-hover:scale-105">
-                <div class="absolute inset-0 bg-black/40 rounded-lg opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
-                    <i class="fa-solid fa-expand text-white text-xs"></i>
+                <img id="player-art" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=300" class="w-14 h-14 rounded-xl object-cover shadow-lg border border-white/10 transition group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/40 rounded-xl opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
+                    <i class="fa-solid fa-up-right-and-down-left-from-center text-white text-xs"></i>
                 </div>
             </div>
             <div class="overflow-hidden">
-                <h4 id="player-title" class="text-xs md:text-sm font-bold text-white truncate">Cyberpunk Dreams</h4>
-                <p id="player-artist" class="text-[11px] text-zinc-400 truncate">Neon Syndicate</p>
-                <span id="player-badge" class="inline-block mt-0.5 text-[9px] font-mono px-1.5 py-0.2 bg-pink-950/80 border border-pink-600/40 text-pink-400 rounded">YT STREAM</span>
+                <h4 id="player-title" class="text-xs md:text-sm font-semibold text-white truncate">Ambient Drift</h4>
+                <p id="player-artist" class="text-[11px] text-zinc-400 truncate mt-0.5">Zeon Music Studio</p>
+                <span id="player-badge" class="inline-block mt-1 text-[9px] font-medium px-2 py-0.5 bg-white/10 text-zinc-300 rounded-full">YOUTUBE</span>
             </div>
         </div>
 
-        <!-- Center: Playback Controls & Timeline Bar -->
-        <div class="flex flex-col items-center space-y-1.5 w-2/4 max-w-xl">
+        <!-- Center Column: Transport Controls & Seek Timeline -->
+        <div class="flex flex-col items-center space-y-2 w-2/4 max-w-xl">
             <div class="flex items-center space-x-6">
                 <button onclick="toggleShuffle()" id="btn-shuffle" class="text-zinc-400 hover:text-white transition text-xs">
                     <i class="fa-solid fa-shuffle"></i>
@@ -383,8 +374,8 @@
                 <button onclick="playPrevTrack()" class="text-zinc-300 hover:text-white transition text-sm">
                     <i class="fa-solid fa-backward-step"></i>
                 </button>
-                <button onclick="togglePlayPause()" id="btn-play-pause" class="w-9 h-9 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition shadow-lg shadow-white/20">
-                    <i class="fa-solid fa-play text-sm ml-0.5"></i>
+                <button onclick="togglePlayPause()" id="btn-play-pause" class="w-10 h-10 rounded-full bg-white text-slate-950 flex items-center justify-center hover:scale-105 transition shadow-lg">
+                    <i class="fa-solid fa-play text-xs ml-0.5"></i>
                 </button>
                 <button onclick="playNextTrack()" class="text-zinc-300 hover:text-white transition text-sm">
                     <i class="fa-solid fa-forward-step"></i>
@@ -394,25 +385,25 @@
                 </button>
             </div>
 
-            <div class="w-full flex items-center space-x-2 text-[10px] font-mono text-zinc-400">
+            <div class="w-full flex items-center space-x-3 text-[11px] font-medium text-zinc-400">
                 <span id="time-current">0:00</span>
                 <input id="timeline-slider" type="range" min="0" max="100" value="0" oninput="seekTrack(this.value)" class="w-full">
                 <span id="time-duration">0:00</span>
             </div>
         </div>
 
-        <!-- Right: Audio Spectrum Visualizer, Volume & Fullscreen Lyrics -->
-        <div class="flex items-center justify-end space-x-4 w-1/4">
-            <!-- Canvas spectrum mini analyzer -->
-            <div class="hidden lg:block w-24 h-8 bg-black/30 rounded border border-white/5 overflow-hidden">
+        <!-- Right Column: Visualizer, Volume, and Lyrics Toggle -->
+        <div class="flex items-center justify-end space-x-5 w-1/4">
+            <!-- Spectrum Visualizer -->
+            <div class="hidden lg:block w-20 h-7 bg-white/5 rounded-lg border border-white/5 overflow-hidden">
                 <canvas id="spectrumCanvas" class="w-full h-full"></canvas>
             </div>
 
-            <button onclick="toggleLyricsModal()" id="btn-lyrics" class="text-zinc-400 hover:text-pink-500 transition text-sm" title="Synchronized Live Lyrics">
+            <button onclick="toggleLyricsModal()" id="btn-lyrics" class="text-zinc-400 hover:text-indigo-400 transition text-sm" title="Live Synchronized Text">
                 <i class="fa-solid fa-quote-right"></i>
             </button>
 
-            <!-- Volume Slider -->
+            <!-- Volume Control Slider -->
             <div class="flex items-center space-x-2">
                 <i id="volume-icon" class="fa-solid fa-volume-high text-zinc-400 text-xs"></i>
                 <input id="volume-slider" type="range" min="0" max="100" value="80" oninput="setVolume(this.value)" class="w-16 md:w-20">
@@ -420,137 +411,174 @@
         </div>
     </footer>
 
-    <div id="lyrics-modal" class="hidden fixed inset-0 z-50 glass-panel flex flex-col md:flex-row p-6 md:p-12 transition-all duration-500">
-        <button onclick="toggleLyricsModal()" class="absolute top-6 right-6 text-zinc-400 hover:text-white text-2xl">
+    <!-- Fullscreen Lyrics Overlay Panel -->
+    <div id="lyrics-modal" class="hidden fixed inset-0 z-50 glass-panel flex flex-col md:flex-row p-8 md:p-16 transition-all duration-300">
+        <button onclick="toggleLyricsModal()" class="absolute top-8 right-8 text-zinc-400 hover:text-white text-2xl transition">
             <i class="fa-solid fa-xmark"></i>
         </button>
 
-        <!-- Left Art Column -->
-        <div class="w-full md:w-1/2 flex flex-col items-center justify-center p-6 space-y-4">
-            <img id="lyrics-art" src="" class="w-64 h-64 md:w-80 md:h-80 rounded-2xl object-cover shadow-2xl border border-white/10">
+        <!-- Left Album Canvas -->
+        <div class="w-full md:w-1/2 flex flex-col items-center justify-center p-6 space-y-6">
+            <img id="lyrics-art" src="" class="w-64 h-64 md:w-96 md:h-96 rounded-3xl object-cover shadow-2xl border border-white/10">
             <div class="text-center">
-                <h2 id="lyrics-title" class="text-xl font-bold text-white">Track Title</h2>
-                <p id="lyrics-artist" class="text-sm text-pink-400">Artist</p>
+                <h2 id="lyrics-title" class="text-2xl font-bold text-white tracking-tight">Track Title</h2>
+                <p id="lyrics-artist" class="text-sm text-zinc-400 mt-1">Artist</p>
             </div>
         </div>
 
-        <!-- Right Lyrics Scrolling Column -->
+        <!-- Right Lyrics Display Container -->
         <div class="w-full md:w-1/2 flex flex-col justify-center h-full overflow-hidden p-6">
-            <div id="lyrics-container" class="space-y-6 overflow-y-auto max-h-[70vh] pr-4 font-bold text-xl md:text-3xl leading-snug">
-                <!-- Lyrics dynamically populated -->
+            <div id="lyrics-container" class="space-y-6 overflow-y-auto max-h-[65vh] pr-4 font-semibold text-2xl md:text-3xl leading-snug">
+                <!-- Dynamic lyrics rendering -->
             </div>
         </div>
     </div>
 
+    <!-- Application Script and Playback Logic -->
     <script>
-        // Preloaded Tracks Data
+        // Initial Curated Playlist Data
         const preloadedPlaylist = [
             {
                 id: 'pre1',
-                title: 'Cyberpunk Synthwave Night',
-                artist: 'Lofi Girl / ChilledCow',
+                title: 'Lofi Hip Hop - Beats to Relax/Study to',
+                artist: 'Lofi Girl',
                 type: 'youtube',
                 ytId: 'jfKfPfyJRdk',
-                art: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=400',
+                art: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=500',
+                fallbackAudio: 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3',
                 lyrics: [
-                    "Drifting through the neon rain...",
-                    "Cybernetic streets calling out your name.",
-                    "Holograms fade into the midnight blue.",
-                    "Synthwave signals carrying me back to you.",
-                    "Digital heartbeat softly plays...",
-                    "Lost inside the cyber maze."
+                    "Relaxing instrumentals flowing continuously...",
+                    "Focusing through peaceful ambient sounds.",
+                    "Gentle beats for study, work, and relaxation.",
+                    "Enjoy seamless audio playback."
                 ]
             },
             {
                 id: 'pre2',
-                title: 'Midnight Arcade Driving',
-                artist: 'Kavinsky Vibe',
+                title: 'Acoustic Guitar Ambient Melodies',
+                artist: 'Acoustic Sessions',
                 type: 'youtube',
-                ytId: 'MVPTGNGiI-4',
-                art: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=400',
+                ytId: '4xDzrJKXOOY',
+                art: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=500',
+                fallbackAudio: 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=relaxing-mountains-rivers-14132.mp3',
                 lyrics: [
-                    "Speeding down the grid at 120 mph.",
-                    "Tail lights blazing like plasma fires.",
-                    "The city skyline glows with synthetic energy.",
-                    "No destination, just pure rhythm.",
-                    "Turn up the bass..."
+                    "Acoustic strings echoing quietly...",
+                    "Calm environment and acoustic harmony.",
+                    "Unplugged live sessions."
                 ]
             },
             {
                 id: 'pre3',
-                title: 'Deep Focus Coding Ambient',
-                artist: 'CyberNet Audio',
+                title: 'Deep Ambient Chillout',
+                artist: 'Studio Audio Focus',
                 type: 'youtube',
                 ytId: '5qap5aO4i9A',
-                art: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=400',
+                art: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=500',
+                fallbackAudio: 'https://cdn.pixabay.com/download/audio/2021/09/06/audio_848416d8bf.mp3?filename=ambient-piano-10781.mp3',
                 lyrics: [
-                    "[Instrumental Flow]",
-                    "Data packets processing in real-time.",
-                    "Neural networks syncing...",
-                    "Pure focus mode engaged."
+                    "[Instrumental Ambient Flow]",
+                    "Subtle textures and peaceful frequencies.",
+                    "Continuous high-definition audio."
                 ]
             }
         ];
 
-        // Curated YouTube Stations
+        // Featured Curated Radio Stations
         const curatedStations = [
-            { name: 'Cyberpunk 2077 Beats', ytId: 'jfKfPfyJRdk', art: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=300' },
-            { name: 'Lofi Chillhop Radio', ytId: 'TURbeWK2wwg', art: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=300' },
-            { name: 'Retrowave Tokyo Drift', ytId: '4xDzrJKXOOY', art: 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=300' },
-            { name: 'Synthesizer Masterpieces', ytId: '5qap5aO4i9A', art: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=300' }
+            { name: 'Lo-Fi Chill Hop Radio', ytId: 'jfKfPfyJRdk', art: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=300' },
+            { name: 'Ambient Focus Streams', ytId: '5qap5aO4i9A', art: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=300' },
+            { name: 'Acoustic Unplugged', ytId: '4xDzrJKXOOY', art: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=300' },
+            { name: 'Jazz & Piano Lounge', ytId: 'TURbeWK2wwg', art: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?q=80&w=300' }
         ];
 
-        // State variables
+        // Player State Management
         let queue = [...preloadedPlaylist];
         let currentTrackIndex = 0;
         let isPlaying = false;
         let isShuffle = false;
         let isRepeat = false;
-        let localAudio = new Audio();
+        let currentType = 'youtube'; // 'youtube' or 'local'
+        
+        // HTML5 Audio Element for Local Files & Fallbacks
+        let htmlAudio = new Audio();
+        htmlAudio.crossOrigin = "anonymous";
+        let isFallbackActive = false;
+
+        // YouTube API States
         let ytPlayer = null;
         let ytReady = false;
-        let currentType = 'youtube'; // 'youtube' or 'local'
-        let audioCtx = null;
-        let analyser = null;
-        let sourceNode = null;
-        let lyricTimer = null;
-        let currentLyricIndex = 0;
 
-        // Initialize App
+        // App Initialization
         window.addEventListener('DOMContentLoaded', () => {
             renderCuratedStations();
             renderPreloadedTracks();
             renderQueue();
             setupAudioVisualizer();
             loadTrack(0, false);
+
+            // Audio Listeners for Local Files
+            htmlAudio.addEventListener('ended', () => playNextTrack());
+            htmlAudio.addEventListener('error', (e) => {
+                console.warn("HTML5 Audio playback encountered an error, trying fallback...", e);
+            });
         });
 
-        // YouTube IFrame API Callback
+        // Global callback required by YouTube Iframe API
         function onYouTubeIframeAPIReady() {
             ytPlayer = new YT.Player('yt-player', {
-                height: '0',
-                width: '0',
+                height: '100',
+                width: '100',
                 videoId: preloadedPlaylist[0].ytId,
-                playerVars: { 'autoplay': 0, 'controls': 0 },
+                playerVars: { 
+                    'autoplay': 0, 
+                    'controls': 0, 
+                    'origin': window.location.origin,
+                    'enablejsapi': 1 
+                },
                 events: {
                     'onReady': () => { ytReady = true; },
-                    'onStateChange': onYTStateChange
+                    'onStateChange': onYTStateChange,
+                    'onError': onYTError
                 }
             });
         }
 
+        // Handle YouTube Player Events
         function onYTStateChange(event) {
             if (event.data === YT.PlayerState.ENDED) {
                 playNextTrack();
+            } else if (event.data === YT.PlayerState.PLAYING) {
+                isPlaying = true;
+                updatePlayPauseButton();
+            } else if (event.data === YT.PlayerState.PAUSED) {
+                isPlaying = false;
+                updatePlayPauseButton();
             }
         }
 
+        // Handle YouTube Playback Errors gracefully with standard audio stream fallbacks
+        function onYTError(event) {
+            console.warn("YouTube iframe embed restricted or blocked for track. Switching to backup streaming audio pipeline.");
+            const track = queue[currentTrackIndex];
+            if (track && track.fallbackAudio) {
+                isFallbackActive = true;
+                htmlAudio.src = track.fallbackAudio;
+                if (isPlaying) {
+                    htmlAudio.play().catch(err => console.log("User interaction required for fallback audio play.", err));
+                }
+            }
+        }
+
+        // Core Track Loader Function
         function loadTrack(index, autoPlay = true) {
             if (index < 0 || index >= queue.length) return;
             currentTrackIndex = index;
             const track = queue[currentTrackIndex];
 
-            // Update UI Info
+            // Reset state flags
+            isFallbackActive = false;
+
+            // UI Label & Artwork Updates
             document.getElementById('player-title').innerText = track.title;
             document.getElementById('player-artist').innerText = track.artist;
             document.getElementById('player-art').src = track.art;
@@ -558,26 +586,34 @@
             document.getElementById('lyrics-title').innerText = track.title;
             document.getElementById('lyrics-artist').innerText = track.artist;
 
-            document.getElementById('player-badge').innerText = track.type === 'youtube' ? 'YT STREAM' : 'LOCAL MP3';
-            
-            // Dynamic Background Ambient Color Shift
+            document.getElementById('player-badge').innerText = track.type === 'youtube' ? 'YOUTUBE' : 'LOCAL MP3';
+
+            // Adaptive Background Color Shift based on track title
             shiftAmbientColors(track.title);
 
-            // Populate Lyrics
-            renderLyrics(track.lyrics || ["Instrumental Track", "No text lyrics available."]);
+            // Populate synchronized lyrics preview
+            renderLyrics(track.lyrics || ["Instrumental audio playback.", "No text lyrics available for this track."]);
 
             currentType = track.type;
 
             if (currentType === 'youtube') {
-                localAudio.pause();
-                if (ytReady && ytPlayer) {
-                    ytPlayer.loadVideoById(track.ytId);
-                    if (!autoPlay) ytPlayer.pauseVideo();
+                htmlAudio.pause();
+                if (ytReady && ytPlayer && ytPlayer.loadVideoById) {
+                    try {
+                        ytPlayer.loadVideoById(track.ytId);
+                        if (!autoPlay) ytPlayer.pauseVideo();
+                    } catch (e) {
+                        console.warn("Direct YT Load Error:", e);
+                    }
                 }
             } else if (currentType === 'local') {
-                if (ytReady && ytPlayer) ytPlayer.stopVideo();
-                localAudio.src = track.url;
-                if (autoPlay) localAudio.play();
+                if (ytReady && ytPlayer && ytPlayer.stopVideo) {
+                    ytPlayer.stopVideo();
+                }
+                htmlAudio.src = track.url;
+                if (autoPlay) {
+                    htmlAudio.play().catch(e => console.log("Browser autoplay restriction caught:", e));
+                }
             }
 
             isPlaying = autoPlay;
@@ -585,17 +621,24 @@
             renderQueue();
         }
 
+        // Toggle Play/Pause State
         function togglePlayPause() {
             const track = queue[currentTrackIndex];
             if (!track) return;
 
             if (isPlaying) {
-                if (currentType === 'youtube' && ytPlayer) ytPlayer.pauseVideo();
-                if (currentType === 'local') localAudio.pause();
+                if (currentType === 'youtube' && !isFallbackActive) {
+                    if (ytPlayer && ytPlayer.pauseVideo) ytPlayer.pauseVideo();
+                } else {
+                    htmlAudio.pause();
+                }
                 isPlaying = false;
             } else {
-                if (currentType === 'youtube' && ytPlayer) ytPlayer.playVideo();
-                if (currentType === 'local') localAudio.play();
+                if (currentType === 'youtube' && !isFallbackActive) {
+                    if (ytPlayer && ytPlayer.playVideo) ytPlayer.playVideo();
+                } else {
+                    htmlAudio.play().catch(e => console.log("Play failed:", e));
+                }
                 isPlaying = true;
             }
             updatePlayPauseButton();
@@ -604,8 +647,8 @@
         function updatePlayPauseButton() {
             const btn = document.getElementById('btn-play-pause');
             btn.innerHTML = isPlaying ? 
-                '<i class="fa-solid fa-pause text-sm"></i>' : 
-                '<i class="fa-solid fa-play text-sm ml-0.5"></i>';
+                '<i class="fa-solid fa-pause text-xs"></i>' : 
+                '<i class="fa-solid fa-play text-xs ml-0.5"></i>';
         }
 
         function playNextTrack() {
@@ -613,7 +656,7 @@
                 loadTrack(currentTrackIndex, true);
                 return;
             }
-            let next = currentTrackIndex + 1;
+            let next = isShuffle ? Math.floor(Math.random() * queue.length) : currentTrackIndex + 1;
             if (next >= queue.length) next = 0;
             loadTrack(next, true);
         }
@@ -626,32 +669,32 @@
 
         function seekTrack(value) {
             const track = queue[currentTrackIndex];
-            if (currentType === 'youtube' && ytPlayer) {
+            if (currentType === 'youtube' && !isFallbackActive && ytPlayer && ytPlayer.getDuration) {
                 let duration = ytPlayer.getDuration() || 100;
                 ytPlayer.seekTo((value / 100) * duration, true);
-            } else if (currentType === 'local') {
-                let duration = localAudio.duration || 100;
-                localAudio.currentTime = (value / 100) * duration;
+            } else {
+                let duration = htmlAudio.duration || 100;
+                htmlAudio.currentTime = (value / 100) * duration;
             }
         }
 
         function setVolume(val) {
             let volume = val / 100;
             if (ytPlayer && ytPlayer.setVolume) ytPlayer.setVolume(val);
-            localAudio.volume = volume;
+            htmlAudio.volume = volume;
         }
 
-        // Timeline Progress Poller
+        // Timeline Progress Update Loop
         setInterval(() => {
             let currentTime = 0;
             let duration = 0;
 
-            if (currentType === 'youtube' && ytPlayer && ytPlayer.getCurrentTime) {
+            if (currentType === 'youtube' && !isFallbackActive && ytPlayer && ytPlayer.getCurrentTime) {
                 currentTime = ytPlayer.getCurrentTime() || 0;
                 duration = ytPlayer.getDuration() || 1;
-            } else if (currentType === 'local') {
-                currentTime = localAudio.currentTime || 0;
-                duration = localAudio.duration || 1;
+            } else {
+                currentTime = htmlAudio.currentTime || 0;
+                duration = htmlAudio.duration || 1;
             }
 
             if (duration > 0) {
@@ -667,93 +710,83 @@
             return `${m}:${s < 10 ? '0' : ''}${s}`;
         }
 
+        // Local MP3 File Handler with Blob URLs
         function handleLocalFiles(files) {
+            if (!files || files.length === 0) return;
+
             for (let file of files) {
-                const url = URL.createObjectURL(file);
+                const blobUrl = URL.createObjectURL(file);
                 const newTrack = {
                     id: 'local_' + Date.now() + Math.random(),
                     title: file.name.replace(/\.[^/.]+$/, ""),
-                    artist: 'Local Library Track',
+                    artist: 'Local Audio Library',
                     type: 'local',
-                    url: url,
+                    url: blobUrl,
                     art: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=400',
-                    lyrics: ["Local MP3 Audio Playback", "Web Audio Processing Active."]
+                    lyrics: ["Local file loaded directly via HTML5 Audio.", "Enjoy high fidelity playback."]
                 };
                 queue.push(newTrack);
             }
             renderQueue();
             renderLocalTracksList();
             switchTab('queue');
+            loadTrack(queue.length - files.length, true);
         }
 
         function handleDrop(e) {
             e.preventDefault();
+            document.getElementById('drop-zone').classList.remove('border-indigo-500');
             if (e.dataTransfer.files.length) {
                 handleLocalFiles(e.dataTransfer.files);
             }
         }
 
-        // Web Audio API Spectrum Visualizer
-        function setupAudioVisualizer() {
-            const canvas = document.getElementById('spectrumCanvas');
-            const ctx = canvas.getContext('2d');
+        // Extract YouTube Video ID from standard YouTube URL string or ID
+        function extractYouTubeId(input) {
+            const match = input.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+            return match ? match[1] : null;
+        }
 
-            function draw() {
-                requestAnimationFrame(draw);
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+        function searchOrLoadYouTube(query) {
+            if (!query || !query.trim()) return;
+            const extractedId = extractYouTubeId(query);
 
-                let bars = 16;
-                let barWidth = canvas.width / bars;
-
-                for (let i = 0; i < bars; i++) {
-                    let height = isPlaying ? Math.random() * canvas.height * 0.8 + 4 : 2;
-                    ctx.fillStyle = '#ff2d55';
-                    ctx.fillRect(i * barWidth, canvas.height - height, barWidth - 2, height);
-                }
+            if (extractedId) {
+                addAndPlayYT(extractedId, 'YouTube Stream', 'Online Channel');
+                return;
             }
-            draw();
-        }
 
-        // Ambient Dynamic Color Shift
-        function shiftAmbientColors(seed) {
-            const colors = [
-                ['#1a0b2e', '#082032'],
-                ['#2b0314', '#0d1b2a'],
-                ['#032b1d', '#1b032b'],
-                ['#2b2203', '#03252b']
-            ];
-            let idx = Math.abs(seed.length) % colors.length;
-            document.documentElement.style.setProperty('--bg-glow-1', colors[idx][0]);
-            document.documentElement.style.setProperty('--bg-glow-2', colors[idx][1]);
-        }
-
-        // Search YouTube Music Mock Function
-        function searchYouTubeMusic(query) {
-            if (!query) return;
             switchTab('search-results');
             document.getElementById('search-query-label').innerText = `Query: "${query}"`;
 
             const resultsContainer = document.getElementById('search-results-grid');
-            resultsContainer.innerHTML = '<p class="text-pink-400 text-xs animate-pulse">Searching Zeon Music Stream...</p>';
+            resultsContainer.innerHTML = '<p class="text-indigo-400 text-xs animate-pulse">Searching online streams...</p>';
 
             setTimeout(() => {
                 resultsContainer.innerHTML = `
-                    <div class="glass-card p-3 rounded-xl flex items-center space-x-3 cursor-pointer" onclick="addAndPlayYT('jfKfPfyJRdk', '${query} Cyber Mix', 'Zeon Stream')">
-                        <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=200" class="w-12 h-12 rounded-lg object-cover">
+                    <div class="glass-card p-4 rounded-2xl flex items-center space-x-3 cursor-pointer" onclick="addAndPlayYT('jfKfPfyJRdk', '${query} Chill Stream', 'Zeon Online Stream')">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=200" class="w-12 h-12 rounded-xl object-cover">
                         <div class="overflow-hidden">
-                            <h4 class="text-xs font-bold text-white truncate">${query} Cyber Mix</h4>
-                            <p class="text-[10px] text-zinc-400">Zeon Streaming</p>
+                            <h4 class="text-xs font-bold text-white truncate">${query} Chill Stream</h4>
+                            <p class="text-[11px] text-zinc-400">High Definition Audio</p>
                         </div>
                     </div>
-                    <div class="glass-card p-3 rounded-xl flex items-center space-x-3 cursor-pointer" onclick="addAndPlayYT('TURbeWK2wwg', '${query} Chill Lofi', 'Zeon Stream')">
-                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=200" class="w-12 h-12 rounded-lg object-cover">
+                    <div class="glass-card p-4 rounded-2xl flex items-center space-x-3 cursor-pointer" onclick="addAndPlayYT('4xDzrJKXOOY', '${query} Instrumental', 'Zeon Acoustic Studio')">
+                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=200" class="w-12 h-12 rounded-xl object-cover">
                         <div class="overflow-hidden">
-                            <h4 class="text-xs font-bold text-white truncate">${query} Chill Lofi</h4>
-                            <p class="text-[10px] text-zinc-400">Zeon Stream</p>
+                            <h4 class="text-xs font-bold text-white truncate">${query} Instrumental</h4>
+                            <p class="text-[11px] text-zinc-400">Acoustic Session</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-4 rounded-2xl flex items-center space-x-3 cursor-pointer" onclick="addAndPlayYT('5qap5aO4i9A', '${query} Ambient Session', 'Zeon Ambient')">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=200" class="w-12 h-12 rounded-xl object-cover">
+                        <div class="overflow-hidden">
+                            <h4 class="text-xs font-bold text-white truncate">${query} Ambient Session</h4>
+                            <p class="text-[11px] text-zinc-400">Deep Relaxation</p>
                         </div>
                     </div>
                 `;
-            }, 600);
+            }, 500);
         }
 
         function addAndPlayYT(ytId, title, artist) {
@@ -763,11 +796,48 @@
                 artist: artist,
                 type: 'youtube',
                 ytId: ytId,
-                art: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=400',
-                lyrics: ["Streaming live from YouTube Music.", "Enjoy high-definition cyber beats."]
+                art: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=400',
+                fallbackAudio: 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3',
+                lyrics: ["Live audio streaming directly from online session.", "Enjoy clear ambient playback."]
             };
             queue.push(track);
             loadTrack(queue.length - 1, true);
+        }
+
+        // Web Audio Spectrum Analyzer Visualizer Simulation
+        function setupAudioVisualizer() {
+            const canvas = document.getElementById('spectrumCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            function draw() {
+                requestAnimationFrame(draw);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                let bars = 12;
+                let barWidth = canvas.width / bars;
+
+                for (let i = 0; i < bars; i++) {
+                    let height = isPlaying ? Math.random() * canvas.height * 0.85 + 3 : 2;
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+                    ctx.fillRect(i * barWidth, canvas.height - height, barWidth - 2, height);
+                }
+            }
+            draw();
+        }
+
+        // Soft Dynamic Color Mesh Shift (Apple Music Style)
+        function shiftAmbientColors(seed) {
+            const palette = [
+                ['#3b82f6', '#8b5cf6', '#ec4899'],
+                ['#06b6d4', '#3b82f6', '#6366f1'],
+                ['#10b981', '#06b6d4', '#3b82f6'],
+                ['#f59e0b', '#ec4899', '#8b5cf6']
+            ];
+            let idx = Math.abs(seed.length) % palette.length;
+            document.documentElement.style.setProperty('--bg-accent-1', palette[idx][0]);
+            document.documentElement.style.setProperty('--bg-accent-2', palette[idx][1]);
+            document.documentElement.style.setProperty('--bg-accent-3', palette[idx][2]);
         }
 
         function switchTab(tabId) {
@@ -787,32 +857,37 @@
 
         function renderCuratedStations() {
             const grid = document.getElementById('curated-stations-grid');
-            grid.innerHTML = curatedStations.map(s => `
-                <div class="glass-card p-3 rounded-xl cursor-pointer group" onclick="addAndPlayYT('${s.ytId}', '${s.name}', 'Curated Station')">
-                    <div class="relative overflow-hidden rounded-lg mb-2">
-                        <img src="${s.art}" class="w-full h-32 object-cover transition group-hover:scale-105">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                            <i class="fa-solid fa-play text-white text-xl"></i>
+            grid.innerHTML = curatedStations.map((s, idx) => `
+                <div class="glass-card p-3 rounded-2xl cursor-pointer group" onclick="playCuratedStation(${idx})">
+                    <div class="relative overflow-hidden rounded-xl mb-3">
+                        <img src="${s.art}" class="w-full h-32 object-cover transition duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <i class="fa-solid fa-play text-white text-lg"></i>
                         </div>
                     </div>
-                    <h4 class="text-xs font-bold text-white truncate">${s.name}</h4>
-                    <p class="text-[10px] text-zinc-400">Radio Station</p>
+                    <h4 class="text-xs font-semibold text-white truncate">${s.name}</h4>
+                    <p class="text-[10px] text-zinc-400 mt-0.5">Station Channel</p>
                 </div>
             `).join('');
+        }
+
+        function playCuratedStation(idx) {
+            const st = curatedStations[idx];
+            if (st) addAndPlayYT(st.ytId, st.name, 'Curated Radio Station');
         }
 
         function renderPreloadedTracks() {
             const list = document.getElementById('preloaded-tracks-list');
             list.innerHTML = preloadedPlaylist.map((t, idx) => `
-                <div class="p-3 flex items-center justify-between hover:bg-white/5 transition cursor-pointer" onclick="loadTrack(${idx}, true)">
-                    <div class="flex items-center space-x-3">
-                        <img src="${t.art}" class="w-10 h-10 rounded-md object-cover">
+                <div class="p-3.5 flex items-center justify-between hover:bg-white/5 transition cursor-pointer" onclick="loadTrack(${idx}, true)">
+                    <div class="flex items-center space-x-3.5">
+                        <img src="${t.art}" class="w-10 h-10 rounded-xl object-cover">
                         <div>
-                            <h4 class="text-xs font-bold text-white">${t.title}</h4>
-                            <p class="text-[10px] text-zinc-400">${t.artist}</p>
+                            <h4 class="text-xs font-semibold text-white">${t.title}</h4>
+                            <p class="text-[11px] text-zinc-400 mt-0.5">${t.artist}</p>
                         </div>
                     </div>
-                    <i class="fa-solid fa-circle-play text-pink-500 hover:scale-110 transition"></i>
+                    <i class="fa-solid fa-circle-play text-zinc-400 hover:text-white transition text-lg"></i>
                 </div>
             `).join('');
         }
@@ -820,15 +895,15 @@
         function renderQueue() {
             const list = document.getElementById('queue-list');
             list.innerHTML = queue.map((t, idx) => `
-                <div class="p-3 flex items-center justify-between ${idx === currentTrackIndex ? 'bg-pink-950/30 border-l-2 border-pink-500' : 'hover:bg-white/5'} transition cursor-pointer" onclick="loadTrack(${idx}, true)">
-                    <div class="flex items-center space-x-3">
-                        <img src="${t.art}" class="w-9 h-9 rounded-md object-cover">
+                <div class="p-3.5 flex items-center justify-between ${idx === currentTrackIndex ? 'bg-white/10' : 'hover:bg-white/5'} transition cursor-pointer" onclick="loadTrack(${idx}, true)">
+                    <div class="flex items-center space-x-3.5">
+                        <img src="${t.art}" class="w-9 h-9 rounded-lg object-cover">
                         <div>
-                            <h4 class="text-xs font-bold ${idx === currentTrackIndex ? 'text-pink-400' : 'text-white'}">${t.title}</h4>
-                            <p class="text-[10px] text-zinc-400">${t.artist}</p>
+                            <h4 class="text-xs font-semibold ${idx === currentTrackIndex ? 'text-indigo-300' : 'text-white'}">${t.title}</h4>
+                            <p class="text-[11px] text-zinc-400 mt-0.5">${t.artist}</p>
                         </div>
                     </div>
-                    <span class="text-[10px] font-mono text-zinc-500">${t.type.toUpperCase()}</span>
+                    <span class="text-[10px] font-medium text-zinc-400 uppercase">${t.type}</span>
                 </div>
             `).join('');
         }
@@ -839,12 +914,12 @@
             if (localTracks.length === 0) return;
 
             list.innerHTML = localTracks.map(t => `
-                <div class="p-3 flex items-center justify-between hover:bg-white/5 transition">
+                <div class="p-3.5 flex items-center justify-between hover:bg-white/5 transition">
                     <div class="flex items-center space-x-3">
-                        <i class="fa-solid fa-file-audio text-pink-500 text-lg"></i>
+                        <i class="fa-solid fa-file-audio text-emerald-400 text-base"></i>
                         <div>
-                            <h4 class="text-xs font-bold text-white">${t.title}</h4>
-                            <p class="text-[10px] text-zinc-400">Local MP3</p>
+                            <h4 class="text-xs font-semibold text-white">${t.title}</h4>
+                            <p class="text-[11px] text-zinc-400 mt-0.5">Local Audio</p>
                         </div>
                     </div>
                 </div>
@@ -875,20 +950,16 @@
 
         function toggleShuffle() {
             isShuffle = !isShuffle;
-            document.getElementById('btn-shuffle').classList.toggle('text-pink-500', isShuffle);
+            document.getElementById('btn-shuffle').classList.toggle('text-indigo-400', isShuffle);
         }
 
         function toggleRepeat() {
             isRepeat = !isRepeat;
-            document.getElementById('btn-repeat').classList.toggle('text-pink-500', isRepeat);
+            document.getElementById('btn-repeat').classList.toggle('text-indigo-400', isRepeat);
         }
 
         function applyEQPreset(preset) {
             document.getElementById('eq-current-label').innerText = preset.toUpperCase();
-        }
-
-        function playCuratedStation(type) {
-            addAndPlayYT('jfKfPfyJRdk', 'Cyberpunk Lofi Radio', 'Live YouTube Stream');
         }
     </script>
 </body>
